@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coaches | Homegrown Baseball · Mililani</title>
+  <meta name="description" content="Meet the coaches behind Homegrown Baseball — local volunteer coaches developing Mililani's youth through baseball." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            green: { 950: '#000000', 900: '#111111', 800: '#1c1c1c', 700: '#2a2a2a', 600: '#3a3a3a', 500: '#4a4a4a' },
+            gold:  { 300: '#fde68a', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+            red:   { 500: '#ef4444', 600: '#dc2626', 700: '#b91c1c' },
+          },
+          fontFamily: { condensed: ['Barlow Condensed', 'sans-serif'], body: ['Barlow', 'sans-serif'] },
+          letterSpacing: { widest: '0.2em' },
+        },
+      },
+    }
+  </script>
+  <style>
+    :root { --green-950:#000; --green-900:#111; --gold:#f59e0b; --red:#dc2626; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Barlow', sans-serif; background:#fafaf8; color:#111827; overflow-x:hidden; }
+    #nav { transition: background 0.3s ease, box-shadow 0.3s ease; background: var(--green-900); }
+    #nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+    .reveal { opacity:0; transform:translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    .reveal-delay-1 { transition-delay:0.1s; } .reveal-delay-2 { transition-delay:0.2s; }
+    .reveal-delay-3 { transition-delay:0.3s; } .reveal-delay-4 { transition-delay:0.4s; }
+    .card-lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .card-lift:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.15); }
+    .gold-underline { position:relative; display:inline-block; }
+    .gold-underline::after { content:''; position:absolute; left:0; bottom:-4px; width:100%; height:4px; background: var(--gold); border-radius:2px; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+════════════════════════════════════════════ -->
+<header id="nav" class="fixed top-0 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 group" aria-label="Homegrown Baseball home">
+      <span class="w-9 h-9 bg-gold-500 text-green-950 font-condensed font-900 text-lg flex items-center justify-center rounded">H</span>
+      <span class="font-condensed font-800 text-lg text-white tracking-wide leading-none">
+        HOMEGROWN<br><span class="text-gold-400 text-xs font-600 tracking-widest">BASEBALL · MILILANI</span>
+      </span>
+    </a>
+    <nav class="hidden md:flex items-center gap-7" aria-label="Primary navigation">
+      <a href="index.html#about"    class="text-white/80 hover:text-white font-body font-500 text-sm">About</a>
+      <a href="coaches.html"        class="text-gold-400 font-body font-600 text-sm">Coaches</a>
+      <a href="roster.html"         class="text-white/80 hover:text-white font-body font-500 text-sm">Roster</a>
+      <a href="index.html#schedule" class="text-white/80 hover:text-white font-body font-500 text-sm">Schedule</a>
+      <a href="index.html#gallery"  class="text-white/80 hover:text-white font-body font-500 text-sm">Gallery</a>
+      <a href="index.html#videos"   class="text-white/80 hover:text-white font-body font-500 text-sm">Videos</a>
+      <a href="index.html#fundraisers" class="text-white/80 hover:text-white font-body font-500 text-sm">Support</a>
+      <a href="index.html#contact"  class="text-white/80 hover:text-white font-body font-500 text-sm">Contact</a>
+    </nav>
+    <button id="menu-btn" class="md:hidden text-white p-2 -mr-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-green-900 border-t border-green-800">
+    <nav class="flex flex-col p-4 gap-3">
+      <a href="index.html#about"    class="text-white/90 font-condensed font-600 text-lg py-1">ABOUT</a>
+      <a href="coaches.html"        class="text-gold-400 font-condensed font-600 text-lg py-1">COACHES</a>
+      <a href="roster.html"         class="text-white/90 font-condensed font-600 text-lg py-1">ROSTER</a>
+      <a href="index.html#schedule" class="text-white/90 font-condensed font-600 text-lg py-1">SCHEDULE</a>
+      <a href="index.html#gallery"  class="text-white/90 font-condensed font-600 text-lg py-1">GALLERY</a>
+      <a href="index.html#videos"   class="text-white/90 font-condensed font-600 text-lg py-1">VIDEOS</a>
+      <a href="index.html#fundraisers" class="text-white/90 font-condensed font-600 text-lg py-1">SUPPORT</a>
+      <a href="index.html#contact"  class="text-white/90 font-condensed font-600 text-lg py-1">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════════
+     PAGE HEADER
+════════════════════════════════════════════ -->
+<section class="relative bg-green-950 pt-32 pb-20 overflow-hidden">
+  <div class="absolute inset-0 opacity-10 pointer-events-none" aria-hidden="true"
+       style="background-image: repeating-linear-gradient(0deg, transparent, transparent 48px, #ffffff 48px, #ffffff 50px);"></div>
+  <div class="absolute inset-0 z-0 opacity-25">
+    <img src="project/assets/team-photo.jpg" alt="" class="w-full h-full object-cover object-top" />
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.85) 100%);"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
+    <p class="font-condensed font-700 text-gold-400 text-sm tracking-widest uppercase mb-4 reveal">The People</p>
+    <h1 class="font-condensed font-900 text-white text-6xl sm:text-7xl lg:text-8xl leading-none reveal reveal-delay-1">
+      MEET THE <span class="gold-underline">COACHES</span>
+    </h1>
+    <p class="font-body text-white/60 text-lg max-w-2xl mx-auto mt-6 reveal reveal-delay-2">
+      Volunteer coaches. Working parents. Lifelong ballplayers. The men putting in the time so Mililani's kids have a place to grow.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     COACH CARDS
+════════════════════════════════════════════ -->
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- HEAD COACH (featured, wide) -->
+    <div class="reveal mb-12">
+      <div class="bg-green-950 rounded-2xl overflow-hidden grid md:grid-cols-5 shadow-xl">
+        <div class="md:col-span-2 relative bg-green-900 min-h-[360px]">
+          <img src="project/assets/portraits/coach1.jpg" alt="Head Coach Chad Demello portrait" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute top-4 left-4 bg-red-600 text-white font-condensed font-800 text-xs tracking-widest px-3 py-1.5 rounded">
+            HEAD COACH
+          </div>
+        </div>
+        <div class="md:col-span-3 p-8 sm:p-10 flex flex-col">
+          <p class="font-condensed font-700 text-gold-400 text-xs tracking-widest uppercase mb-2">Head Coach · Homegrown Mililani</p>
+          <h2 class="font-condensed font-900 text-white text-4xl sm:text-5xl leading-none mb-4">CHAD DEMELLO</h2>
+          <div class="space-y-3 font-body text-white/70 text-base leading-relaxed">
+            <p class="italic text-white/50">Bio placeholder — send us a short paragraph (background, years coaching, why you love the game) and we'll plug it in here.</p>
+          </div>
+          <div class="mt-6 pt-6 border-t border-green-800 flex flex-wrap items-center gap-6 font-condensed font-700 text-white/60 text-xs tracking-widest">
+            <span>📍 Mililani District Park</span>
+            <span>📧 homegrown_mililani@gmail.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Three assistant coaches -->
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Coach 2 -->
+      <div class="reveal reveal-delay-1 bg-white border border-gray-200 rounded-2xl overflow-hidden card-lift">
+        <div class="relative aspect-[4/5] bg-green-900">
+          <img src="project/assets/portraits/coach2.jpg" alt="Assistant Coach Kela Kamoku portrait" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 bg-gold-500 text-green-950 font-condensed font-800 text-[10px] tracking-widest px-2.5 py-1 rounded">
+            ASSISTANT COACH
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="font-condensed font-700 text-red-600 text-[10px] tracking-widest uppercase mb-1">Coaching Staff</p>
+          <h3 class="font-condensed font-900 text-green-950 text-2xl leading-none mb-3">KELA KAMOKU</h3>
+          <p class="font-body text-gray-500 text-sm leading-relaxed mb-4 italic">
+            Bio placeholder — send us a short blurb and we'll add it here.
+          </p>
+          <div class="font-condensed font-700 text-gray-400 text-[11px] tracking-widest">📧 homegrown_mililani@gmail.com</div>
+        </div>
+      </div>
+
+      <!-- Coach 3 -->
+      <div class="reveal reveal-delay-2 bg-white border border-gray-200 rounded-2xl overflow-hidden card-lift">
+        <div class="relative aspect-[4/5] bg-green-900">
+          <img src="project/assets/portraits/coach3.jpg" alt="Assistant Coach Andy Sambrano portrait" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 bg-gold-500 text-green-950 font-condensed font-800 text-[10px] tracking-widest px-2.5 py-1 rounded">
+            ASSISTANT COACH
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="font-condensed font-700 text-red-600 text-[10px] tracking-widest uppercase mb-1">Coaching Staff</p>
+          <h3 class="font-condensed font-900 text-green-950 text-2xl leading-none mb-3">ANDY SAMBRANO</h3>
+          <p class="font-body text-gray-500 text-sm leading-relaxed mb-4 italic">
+            Bio placeholder — send us a short blurb and we'll add it here.
+          </p>
+          <div class="font-condensed font-700 text-gray-400 text-[11px] tracking-widest">📧 homegrown_mililani@gmail.com</div>
+        </div>
+      </div>
+
+      <!-- Coach 4 -->
+      <div class="reveal reveal-delay-3 bg-white border border-gray-200 rounded-2xl overflow-hidden card-lift">
+        <div class="relative aspect-[4/5] bg-green-900">
+          <img src="project/assets/portraits/coach4.jpg" alt="Assistant Coach Broderick Ward Jr portrait" class="absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute top-3 left-3 bg-gold-500 text-green-950 font-condensed font-800 text-[10px] tracking-widest px-2.5 py-1 rounded">
+            ASSISTANT COACH
+          </div>
+        </div>
+        <div class="p-6">
+          <p class="font-condensed font-700 text-red-600 text-[10px] tracking-widest uppercase mb-1">Coaching Staff</p>
+          <h3 class="font-condensed font-900 text-green-950 text-2xl leading-none mb-3">BRODERICK WARD JR</h3>
+          <p class="font-body text-gray-500 text-sm leading-relaxed mb-4 italic">
+            Bio placeholder — send us a short blurb and we'll add it here.
+          </p>
+          <div class="font-condensed font-700 text-gray-400 text-[11px] tracking-widest">📧 homegrown_mililani@gmail.com</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Coaching philosophy strip -->
+    <div class="mt-16 reveal">
+      <div class="bg-gold-500 rounded-2xl p-8 sm:p-10">
+        <div class="grid lg:grid-cols-4 gap-8 items-center">
+          <div class="lg:col-span-1">
+            <p class="font-condensed font-700 text-green-950/70 text-xs tracking-widest uppercase mb-2">Our Coaching Philosophy</p>
+            <h3 class="font-condensed font-900 text-green-950 text-4xl leading-none">RAISE THE STANDARD.</h3>
+          </div>
+          <div class="lg:col-span-3 grid sm:grid-cols-3 gap-6 font-body text-green-950/80 text-sm leading-relaxed">
+            <div>
+              <div class="font-condensed font-900 text-green-950 text-3xl mb-1">01</div>
+              <p class="font-condensed font-800 text-green-950 mb-1">Reps over rhetoric.</p>
+              <p>Less talk. More balls hit. The work shows up on Saturdays.</p>
+            </div>
+            <div>
+              <div class="font-condensed font-900 text-green-950 text-3xl mb-1">02</div>
+              <p class="font-condensed font-800 text-green-950 mb-1">Every kid plays.</p>
+              <p>No bench warmers. If you show up, you get reps. Period.</p>
+            </div>
+            <div>
+              <div class="font-condensed font-900 text-green-950 text-3xl mb-1">03</div>
+              <p class="font-condensed font-800 text-green-950 mb-1">Aloha first.</p>
+              <p>Respect for teammates, parents, umps, opponents. Always.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Join coaching staff CTA -->
+    <div class="mt-16 reveal text-center">
+      <div class="inline-flex flex-col items-center gap-4 bg-gray-50 border border-gray-200 rounded-2xl p-10 max-w-2xl">
+        <div class="inline-flex items-center gap-2 bg-red-600/10 text-red-700 font-condensed font-700 text-xs tracking-widest px-3 py-1.5 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+          NOW RECRUITING
+        </div>
+        <h3 class="font-condensed font-900 text-green-950 text-3xl sm:text-4xl leading-tight">JOIN THE COACHING STAFF</h3>
+        <p class="font-body text-gray-500 text-base leading-relaxed">
+          We're always looking for parents and former players who want to give back. Pitching, hitting, base coaches, scorekeepers — there's a role for you.
+        </p>
+        <a href="mailto:homegrown_mililani@gmail.com?subject=Coaching%20Inquiry"
+           class="bg-red-600 hover:bg-red-500 text-white font-condensed font-800 text-base px-8 py-3.5 rounded tracking-widest transition-all duration-200 hover:scale-105 mt-2">
+          REACH OUT →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer class="bg-green-900 border-t border-green-800 py-12">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-9 h-9 bg-gold-500 text-green-950 font-condensed font-900 text-lg flex items-center justify-center rounded">H</span>
+          <span class="font-condensed font-800 text-base text-white leading-none">
+            HOMEGROWN BASEBALL<br><span class="text-gold-400 text-xs font-600 tracking-widest">MILILANI, HAWAII</span>
+          </span>
+        </div>
+        <p class="font-body text-white/40 text-sm leading-relaxed">
+          Developing tomorrow's talent, right here on the fields of Mililani. Local roots. Elite training. Aloha spirit.
+        </p>
+      </div>
+      <div>
+        <h3 class="font-condensed font-700 text-white text-sm tracking-widest uppercase mb-4">Navigate</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html#about"    class="font-body text-white/50 hover:text-white text-sm transition-colors">About Us</a></li>
+          <li><a href="coaches.html"        class="font-body text-white/50 hover:text-white text-sm transition-colors">Coaching Staff</a></li>
+          <li><a href="roster.html"         class="font-body text-white/50 hover:text-white text-sm transition-colors">Player Roster</a></li>
+          <li><a href="index.html#schedule" class="font-body text-white/50 hover:text-white text-sm transition-colors">2026 Schedule</a></li>
+          <li><a href="index.html#fundraisers" class="font-body text-white/50 hover:text-white text-sm transition-colors">Support Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-condensed font-700 text-white text-sm tracking-widest uppercase mb-4">Connect</h3>
+        <div class="space-y-3">
+          <a href="https://www.instagram.com/homegrown_mililani/" target="_blank" rel="noopener noreferrer" class="block font-body text-white/50 hover:text-white text-sm">@homegrown_mililani</a>
+          <a href="mailto:homegrown_mililani@gmail.com" class="block font-body text-white/50 hover:text-white text-sm">homegrown_mililani@gmail.com</a>
+          <div class="font-body text-white/50 text-sm">Mililani, Oahu, Hawaii</div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-green-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="font-body text-white/30 text-sm">&copy; 2026 Homegrown Baseball · Mililani, Hawaii. All rights reserved.</p>
+      <p class="font-body text-white/20 text-xs">Member of the Hawaii Baseball Association (HiBA)</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+  // Reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
