@@ -233,17 +233,17 @@
 <script>
   // Roster data — 2026 Homegrown Mililani 8U Player Pitch
   const PLAYERS = [
-    { num: 17, first: 'Broderick',  nickname: '"Tre"', last: 'Ward III' },
-    { num: 1,  first: 'Avery',      nickname: '',      last: 'Sambrano' },
-    { num: 13, first: 'Cruz',       nickname: '',      last: 'Demello' },
-    { num: 23, first: 'Ezekiel',    nickname: '"Zeek"', last: 'Comeau' },
-    { num: 30, first: 'Issac',      nickname: '',      last: 'Galinato' },
-    { num: 28, first: 'Jio',        nickname: '',      last: 'Venzon' },
-    { num: 19, first: 'Lion',       nickname: '',      last: 'Ganigan' },
-    { num: 3,  first: 'Makamae',    nickname: '',      last: 'Brewer' },
-    { num: 16, first: 'Oshen',      nickname: '',      last: 'Grub-Hose' },
-    { num: 94, first: 'Sayge',      nickname: '',      last: 'Kapuwai' },
-    { num: 22, first: 'Tyson',      nickname: '',      last: 'Quinn' },
+    { num: 17, first: 'Broderick',  nickname: '"Tre"',      last: 'Ward III',  photo: 'assets/portraits/p1.jpg' },
+    { num: 1,  first: 'Avery',      nickname: '',           last: 'Sambrano',  photo: 'assets/portraits/p2.jpg' },
+    { num: 13, first: 'Cruz',       nickname: '',           last: 'Demello',   photo: 'assets/portraits/p3.jpg' },
+    { num: 23, first: 'Ezekiel',    nickname: '"Zeek"',     last: 'Comeau',    photo: 'assets/portraits/p4.jpg' },
+    { num: 30, first: 'Issac',      nickname: '',           last: 'Galinato',  photo: 'assets/portraits/p5.jpg' },
+    { num: 28, first: 'Jio',        nickname: '',           last: 'Venzon',    photo: null },
+    { num: 19, first: 'Lion',       nickname: '',           last: 'Ganigan',   photo: null },
+    { num: 3,  first: 'Makamae',    nickname: '',           last: 'Brewer',    photo: null },
+    { num: 16, first: 'Oshen',      nickname: '',           last: 'Grub-Hose', photo: null },
+    { num: 94, first: 'Sayge',      nickname: '',           last: 'Kapuwai',   photo: null },
+    { num: 22, first: 'Tyson',      nickname: '',           last: 'Quinn',     photo: null },
   ];
 
   // Inline silhouette SVG used as photo placeholder.
@@ -285,17 +285,18 @@
           <!-- Top stripe -->
           <div class="absolute top-0 left-0 right-0 bg-red-600 h-1.5 z-10"></div>
 
-          <!-- Silhouette area -->
+          <!-- Photo / silhouette area -->
           <div class="relative aspect-square overflow-hidden bg-green-900 flex items-end justify-center">
-            <!-- Field-line backdrop -->
-            <div class="absolute inset-0 opacity-30" style="background: radial-gradient(ellipse at 50% 100%, rgba(245,158,11,0.18) 0%, transparent 65%), repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(255,255,255,0.04) 18px, rgba(255,255,255,0.04) 19px);"></div>
-            <!-- "Photo coming soon" tape -->
-            <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-sm text-white/40 font-condensed font-700 text-[9px] tracking-widest px-2 py-0.5 rounded">PHOTO COMING SOON</div>
+            ${p.photo
+              ? `<img src="${p.photo}" alt="${displayName}" class="absolute inset-0 w-full h-full object-cover object-top" />`
+              : `<div class="absolute inset-0 opacity-30" style="background: radial-gradient(ellipse at 50% 100%, rgba(245,158,11,0.18) 0%, transparent 65%), repeating-linear-gradient(0deg, transparent, transparent 18px, rgba(255,255,255,0.04) 18px, rgba(255,255,255,0.04) 19px);"></div>
+                 <div class="absolute top-3 right-3 bg-black/80 backdrop-blur-sm text-white/40 font-condensed font-700 text-[9px] tracking-widest px-2 py-0.5 rounded">PHOTO COMING SOON</div>
+                 ${SILHOUETTE_SVG}`
+            }
             <!-- Number badge -->
             <div class="absolute top-3 left-3 min-w-[3rem] h-12 px-2 bg-red-600 border-2 border-gold-500 rounded-md flex items-center justify-center font-condensed font-900 text-white text-2xl leading-none shadow-lg z-10">
               #${p.num}
             </div>
-            ${SILHOUETTE_SVG}
             <!-- Gradient at bottom for name -->
             <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/95 to-transparent"></div>
             <div class="absolute bottom-3 left-3 right-3 text-center">
